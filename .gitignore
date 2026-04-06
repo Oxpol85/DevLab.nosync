@@ -1,21 +1,66 @@
 # --- .gitignore para DevLab.nosync ---
 
-# Entorno Virtual Principal
+# ============================================================
+# 1. ENTORNOS VIRTUALES (Python)
+# ============================================================
+venv/
 .venv/
 bin/
 include/
 lib/
 pyvenv.cfg
 
-# Archivos de configuración sensible (Individual de cada cuarto)
+# ============================================================
+# 2. CREDENCIALES Y SECRETOS
+# ============================================================
 **/.env
+.env
 
-# Basura de Python y Sistema
+# ============================================================
+# 3. DATOS MASIVOS Y MULTIMEDIA (Pipeline Spotify)
+# ============================================================
+downloads/
+data/
+*.mp3
+*.wav
+*.flac
+*.m4a
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.wmv
+*.mpeg
+*.mpg
+
+# ============================================================
+# 4. BASURA DE PYTHON Y CACHÉ
+# ============================================================
 **/__pycache__/
+__pycache__/
 **/*.py[cod]
-.DS_Store
+.cache/
 
-# Archivos temporales de Oracle/Azure
+# ============================================================
+# 5. ARCHIVOS DE SISTEMA Y TEMPORALES
+# ============================================================
+.DS_Store
+*.nosync
+*.swp
+**/*.tmp
+
+# ============================================================
+# 6. CONFIGURACIÓN DE IDEs (VS Code, IntelliJ)
+# ============================================================
+.vscode/
+.idea/
+*.iml
+*.iws
+*.sub
+
+# ============================================================
+# 7. LOGS Y MONITOREO
+# ============================================================
+logs/
 **/*.log
-**/*.tmp# Created by venv; see https://docs.python.org/3/library/venv.html
-*
+*.log

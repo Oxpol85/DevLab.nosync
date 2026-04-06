@@ -1,0 +1,7 @@
+spotipy
+spotdl
+pandas
+python-dotenv
+FFmpeg
+so
+
