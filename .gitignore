@@ -1,0 +1,25 @@
+# --- ENTORNOS VIRTUALES Y BINARIOS ---
+# No queremos guardar las librerías instaladas, solo el código
+**/venv/
+**/bin/
+**/lib/
+**/include/
+pyvenv.cfg
+
+# --- PYTHON ---
+# Archivos temporales que genera Python al ejecutarse
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- SISTEMA OPERATIVO (MAC) ---
+# Archivos ocultos de macOS que no sirven para el código
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- AZURE & LOGS ---
+# Evita subir registros de errores locales o archivos de cuotas
+*.log
+.azure/
