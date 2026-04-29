@@ -23,3 +23,20 @@ pyvenv.cfg
 # Evita subir registros de errores locales o archivos de cuotas
 *.log
 .azure/
+# Evita subir archivos de configuración local de Azure
+*.azureconfig   
+# Evitar Subir de contraseñas o claves de acceso
+*.env
+*.secret    
+# --- OTROS ---
+# Archivos de configuración de editores de código
+.vscode/
+.idea/
+# Archivos de configuración de sistemas de control de versiones
+.git/
+.gitignore
+# Archivos de configuración de herramientas de desarrollo
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace       
