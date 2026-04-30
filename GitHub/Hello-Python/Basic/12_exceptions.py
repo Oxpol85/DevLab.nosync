@@ -1,5 +1,3 @@
-# Clase en vídeo: https://youtu.be/Kp4Mvapo5kc?t=32030
-
 ### Exception Handling ###
 
 numberOne = 5

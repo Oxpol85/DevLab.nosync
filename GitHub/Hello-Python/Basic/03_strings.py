@@ -1,9 +1,7 @@
-# Clase en vídeo: https://youtu.be/Kp4Mvapo5kc?t=8643
-
 ### Strings ###
 
 my_string = "Mi String"
-my_other_string = 'Mi otro String'
+my_other_string = "Mi otro String"
 
 print(len(my_string))
 print(len(my_other_string))

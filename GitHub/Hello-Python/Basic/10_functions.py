@@ -1,8 +1,7 @@
-# Clase en vídeo: https://youtu.be/Kp4Mvapo5kc?t=26619
-
 ### Functions ###
 
 # Definición
+
 
 def my_function():
     print("Esto es una función")
