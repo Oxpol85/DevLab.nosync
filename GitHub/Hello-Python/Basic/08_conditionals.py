@@ -30,5 +30,5 @@ my_string = ""
 if not my_string:
     print("Mi cadena de texto es vacía")
 
-if my_string == "Mi cadena de textoooooo":
+elif my_string == "Mi cadena de textoooooo":
     print("Estas cadenas de texto coinciden")

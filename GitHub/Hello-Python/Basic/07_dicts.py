@@ -8,12 +8,12 @@ my_other_dict = {}
 print(type(my_dict))
 print(type(my_other_dict))
 
-my_other_dict = {"Nombre": "Brais", "Apellido": "Moure", "Edad": 35, 1: "Python"}
+my_other_dict = {"Nombre": "Oscar", "Apellido": "Polania", "Edad": 40, 1: "Python"}
 
 my_dict = {
-    "Nombre": "Brais",
-    "Apellido": "Moure",
-    "Edad": 35,
+    "Nombre": "Oscar",
+    "Apellido": "Polania",
+    "Edad": 40,
     "Lenguajes": {"Python", "Swift", "Kotlin"},
     1: 1.77,
 }
@@ -29,12 +29,12 @@ print(len(my_dict))
 print(my_dict[1])
 print(my_dict["Nombre"])
 
-print("Moure" in my_dict)
+print("Polania" in my_dict)
 print("Apellido" in my_dict)
 
 # Inserción
 
-my_dict["Calle"] = "Calle MoureDev"
+my_dict["Calle"] = "Calle PolaniaDev"
 print(my_dict)
 
 # Actualización
@@ -61,7 +61,7 @@ my_new_dict = dict.fromkeys(("Nombre", 1, "Piso"))
 print((my_new_dict))
 my_new_dict = dict.fromkeys(my_dict)
 print((my_new_dict))
-my_new_dict = dict.fromkeys(my_dict, "MoureDev")
+my_new_dict = dict.fromkeys(my_dict, "PolaniaDev")
 print((my_new_dict))
 
 my_values = my_new_dict.values()
