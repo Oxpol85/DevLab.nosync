@@ -1,42 +1,21 @@
-# --- ENTORNOS VIRTUALES Y BINARIOS ---
-# No queremos guardar las librerías instaladas, solo el código
-**/venv/
-**/bin/
-**/lib/
-**/include/
+# --- .gitignore para DevLab.nosync ---
+
+# Entorno Virtual Principal
+.venv/
+bin/
+include/
+lib/
 pyvenv.cfg
 
-# --- PYTHON ---
-# Archivos temporales que genera Python al ejecutarse
+# Archivos de configuración sensible (Individual de cada cuarto)
+**/.env
+
+# Basura de Python y Sistema
 **/__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# --- SISTEMA OPERATIVO (MAC) ---
-# Archivos ocultos de macOS que no sirven para el código
+**/*.py[cod]
 .DS_Store
-.AppleDouble
-.LSOverride
 
-# --- AZURE & LOGS ---
-# Evita subir registros de errores locales o archivos de cuotas
-*.log
-.azure/
-# Evita subir archivos de configuración local de Azure
-*.azureconfig   
-# Evitar Subir de contraseñas o claves de acceso
-*.env
-*.secret    
-# --- OTROS ---
-# Archivos de configuración de editores de código
-.vscode/
-.idea/
-# Archivos de configuración de sistemas de control de versiones
-.git/
-.gitignore
-# Archivos de configuración de herramientas de desarrollo
-*.sln
-*.suo
-*.xcodeproj
-*.xcworkspace       
+# Archivos temporales de Oracle/Azure
+**/*.log
+**/*.tmp# Created by venv; see https://docs.python.org/3/library/venv.html
+*
