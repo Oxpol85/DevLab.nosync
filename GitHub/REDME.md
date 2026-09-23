@@ -1,60 +1,81 @@
-# 🚀 edX  Ruta de Aprendizaje: Software & Data Engineering
-Bienvenido a mi repositorio central de aprendizaje. Aquí documento mi progreso, ejercicios y proyectos desarrollados en diversas herramientas y lenguajes, con un enfoque especial en Python, bases de datos para el desarrollo profesional.
+# 🚀 Ruta de Aprendizaje: Cloud Automation, Data Engineering & Agentic AI
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 🎓 edX Curse Harvard University CS50 
-Este repositorio contiene mis soluciones y notas para los prestigiosos cursos de la Universidad de Harvard
+[![Python](https://img.shields.io/badge/Python-3.10+-yellow?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)](https://python.org)
+[![Google](https://img.shields.io/badge/Google-IT_Automation-4285F4?style=for-the-badge&logo=google&logoColor=white&labelColor=101010)](https://grow.google)
+[![Oracle](https://img.shields.io/badge/Oracle-Cloud_Infrastructure-F80000?style=for-the-badge&logo=oracle&logoColor=white&labelColor=101010)](https://www.oracle.com/cloud/)
+[![Bash](https://img.shields.io/badge/Terminal-Bash_Scripting-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white&labelColor=101010)](https://www.gnu.org/software/bash/)
 
-### 🐍 CS50`P Introduction to Programming with Python
-Ubicación: `Hello-Python/Harvardyp`
-* **Estado:** En progreso ⏳
-* **Objetio:** Dominar la lógica de programación, estructuras de datos y buenas prácticas con Python.📝
-* **Hitos:** Alcanzaré un nivel técnico y profesional que me separa del "programador aficionado", a  La capacidad de  resolver problemas complejos, diseñar como programar  aplicaciones desde cero en continuidad y persistencia de datos profesional.🎖
+Bienvenido a mi repositorio central de aprendizaje y desarrollo. Aquí documento mi camino hacia la Ingeniería de Datos, la automatización en la nube y el desarrollo con IA Agéntica. Contiene apuntes, cuadernos interactivos (Notebooks) y scripts reales utilizados en entornos de producción.
 
-- [ ] Week 0: Functions, Variables
-- [ ] Week 1: Conditionals
-- [ ] Week 2: Loops
-- [ ] Week 3: Exceptions
-- [ ] Week 4: Libraries
-- [ ] Week 5: Unit Tests
-- [ ] Week 6: File I/O
-- [ ] Week 7: Regular Expressions
-- [ ] Week 8: Object-Oriented Programming
-- [ ] Week 9: Final Project.
+-----------------------------------------------------------------------------------------------------------------
 
-### 🗄️ CS50's Introduction to Databases with SQL
-Ubicación: `Hello-MySQL/HarvardMySQL`
-* **Estado:** En progreso ⏳
-* **Objetivo:** Diseño de bases de datos relacionales, optimización de consultas y manejo de MySQL.♻️
-* **Hitos:** Lograr diseñar esquemas de bases de datos desde cero, normalizar tablas para evitar duplicidad y realizar consultas complejas (JOINs, subconsultas) para extraer información valiosa como su administracion en el almacenaje de datos.📊
+## ☁️ 1. Oracle Agentic AI Foundations Associate (2026) & OCI
+> **Ubicación:** `Hello.AI` / `Hello.Cloud`
+> **Estado:** 🟢 Activo / En progreso
+> **Objetivo:** Dominar los conceptos básicos de IA agéntica y la administración de servidores en Oracle Cloud Infrastructure (OCI).
 
-- [ ] Week 0: Querying
-- [ ] Week 1: Relating
-- [ ] Week 2: Designing
-- [ ] Week 3: Writing
-- [ ] Week 4: Viewing
-- [ ] Week 5: Optimizing
-- [ ] Week 6: Scaling
-- [ ] Week 7: Final Project
+Este programa está diseñado para ingenieros de IA/ML, desarrolladores en la nube y científicos de datos. Abarca desde la infraestructura hasta la implementación de agentes con modelos de lenguaje.
+
+**Agentic AI Foundations (Temario):**
+- [ ] Entender los conceptos centrales de Agentes de IA.
+- [ ] Diseñar agentes usando LangChain y OpenAI Agent Stack.
+- [ ] Implementar conceptos de Model Context Protocol (MCP).
+- [ ] Construir agentes con OCI Enterprise AI Platform.
+- [ ] Aplicar capacidades de Oracle AI Database para IA agéntica.
+
+**Cloud Infrastructure & Automatización (Bash/CLI):**
+- [ ] Centinela OCI - Región Bogotá (Ubuntu 24.04) (`bogota_watcher.sh`)
+- [ ] Centinela OCI - Región Ashburn (`ashburn_watcher.sh`)
+
+-----------------------------------------------------------------------------------------------------------------
+
+## 🐍 2. Google IT Automation with Python (Certificado Profesional)
+> **Ubicación:** `Hello.Python` / `Hello.Git`
+> **Estado:** 🟢 En progreso
+> **Objetivo:** Automatizar tareas del sistema operativo, gestionar recursos y dominar el control de versiones a nivel profesional.
+
+En esta sección documento mis prácticas oficiales del programa de Google, llevando mis scripts y Notebooks a un nivel de producción.
+
+**Ruta del Certificado:**
+- [ ] **Curso 1: Crash Course on Python** (Sintaxis Básica, Estructuras de Datos).
+- [ ] **Curso 2: Using Python to Interact with the Operating System** (Gestión de archivos, procesos, expresiones regulares).
+- [ ] **Curso 3: Introduction to Git and GitHub** (Manejo de repositorios, resolución de conflictos, Pull Requests).
+
+-----------------------------------------------------------------------------------------------------------------
+
+## 🗄️ 3. Oracle SQL Foundations
+> **Ubicación:** `Hello.SQL`
+> **Estado:** 🟢 Activo
+> **Objetivo:** Diseño, gestión y consulta eficiente de bases de datos relacionales y Oracle AI Database.
+
+- [ ] Apuntes teóricos de modelado de datos.
+- [ ] Queries de prueba y optimización (Fundamentals).
+- [ ] Integración de bases de datos tradicionales con capacidades de IA.
 
 -----------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------
+
 ## 🛠️ Tecnologías y Herramientas
-* **Lenguajes:** Python 3.13+
-* **Bases de Datos:** MySQL
-* **Control de Versiones:** Git & GitHub (Flujo de trabajo profesional)
-* **Entornos:** Virtual Envronments (venv), VS Code
+* **Lenguajes:** Python 3.10+, Bash (Shell Scripting), SQL.
+* **Inteligencia Artificial:** LangChain, OpenAI Agent Stack, MCP, OCI Enterprise AI Platform.
+* **Infraestructura y Nube:** Oracle Cloud Infrastructure (OCI).
+* **Control de Versiones:** Git & GitHub (Flujo de trabajo profesional).
+* **Entornos:** Virtual Environments (venv), Jupyter Notebooks, VS Code / Terminal.
 
 -----------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------
+
 ## 📁 Estructura del Repositorio
-* `Hello-Git/`: Fundamentos de control de versiones.
-* `Hello-MySQL/`: Scripts de bases de datos y ejercicios de Harvard CS50's Introduction to Databases with SQL.
-* `Hello-Python/`: Código fuente, lógica de programación de Harvard CS50P Introduction to Programming with Python.
+Para mantener el orden y la escalabilidad de esta nueva etapa, el repositorio se divide en:
+
+* `Hello.Python/`: Código fuente, Notebooks y lógica de programación del programa Google IT.
+* `Hello.AI/`: Proyectos, scripts de LangChain, y laboratorios del Oracle Agentic AI Foundations.
+* `Hello.SQL/`: Apuntes de bases de datos, consultas en Oracle SQL y bases de datos con IA.
+* `Hello.Cloud/`: Scripts de administración bash (Centinelas) e infraestructura OCI.
+* `Hello.Git/`: Fundamentos de control de versiones y repositorios de prueba.
 
 -----------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------
+
 # ⚙️ Cómo replicar mi entorno
-* Clonar el repositorio:
-```Zsh
+1. Clonar el repositorio:
+```zsh
 git clone [https://github.com/TU_USUARIO/NOMBRE_REPO.git](https://github.com/TU_USUARIO/NOMBRE_REPO.git)
