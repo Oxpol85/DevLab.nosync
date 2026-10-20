@@ -1,0 +1,13 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Archivos de sistema macOS
+.DS_Store
+
+# Archivos de base de datos locales (si generas .db para simular)
+*.db
+*.sqlite3
+*# Archivos de log
+*.log   
