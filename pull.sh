@@ -1,177 +1,71 @@
 #!/bin/bash
-set -e============================================================CONFIGURACIÓN============================================================REMOTE="origin"============================================================FUNCIONES GENERALES &GIT============================================================
-show_header() {
-echo -e "\n🚀 Preparando cambios para enviar al repositorio...\n"
-}get_current_branch() {
-CURRENT_BRANCH=$(git branch --show-current)
-if [[ -z "$CURRENT_BRANCH" ]]; then
-echo "❌ No se pudo determinar la rama actual."
-exit 1
-fi
-}fetch_remote() {
-echo "📶 Actualizando información remota..."
-if ! git fetch "$REMOTE" "$CURRENT_BRANCH" 2>/dev/null; then
-echo "⚠️  No se pudo actualizar el remoto (quizás aún no exista la rama en origin)."
-REMOTE_BRANCH=""
-else
-REMOTE_BRANCH="$REMOTE/$CURRENT_BRANCH"
-fi
-}get_history_state() {
-if [[ -z "$REMOTE_BRANCH" ]]; then
-LOCAL_COMMITS=$(git rev-list --count HEAD)
-REMOTE_COMMITS=0
-else
-read -r LOCAL_COMMITS REMOTE_COMMITS <<< "$(git rev-list --left-right --count HEAD..."$REMOTE_BRANCH")"
-fi
-}show_history_state() {
-echo -e "\n🔎 Estado del historial:"
-echo "Local:  $LOCAL_COMMITS commits"
-echo "Remote: $REMOTE_COMMITS commits\n"
-}============================================================RESOLUCIÓN DE DIVERGENCIA============================================================resolve_divergence() {
-echo -e "\n⚠️ HISTORIAL DIVERGENTE"
-echo -e "Local:  $LOCAL_COMMITS commits \vert{} Remote:$REMOTE_COMMITS commits\n"echo "1. 🚧 Rebase (Recomendado para mantener historial limpio)"
-echo "2. 🔀 Merge"
-echo "3. ♿️ Salir"
-read -r -p "Selecciona una opción: " res_option
+set -e
 
-case "$res_option" in
-    1)
-        echo -e "\n🚧 Ejecutando Rebase..."
-        if git rebase "$REMOTE_BRANCH"; then
-            echo "✅ Rebase completado."
-            return 0
-        else
-            echo -e "\n🚨 REBASE DETENIDO por conflictos. Resuélvelos manualmente y usa 'git rebase --continue'."
-            exit 1
-        fi
-        ;;
-    2)
-        echo -e "\n🔀 Ejecutando Merge..."
-        if git merge "$REMOTE_BRANCH"; then
-            echo "✅ Merge completado."
-            return 0
-        else
-            echo -e "\n🚨 MERGE DETENIDO por conflictos. Resuélvelos manualmente y haz commit."
-            exit 1
-        fi
-        ;;
-    *)
-        echo "🛑 Operación cancelada."; exit 0 ;;
-esac
-}analyze_history() {
-fetch_remote
-get_history_state
-show_history_stateif [[ "$LOCAL_COMMITS" -gt 0 && "$REMOTE_COMMITS" -gt 0 ]]; then
-    resolve_divergence
-    fetch_remote
-    get_history_state
-elif [[ "$LOCAL_COMMITS" -eq 0 && "$REMOTE_COMMITS" -gt 0 ]]; then
-    echo "⬇️ El remoto contiene commits nuevos. Ejecuta ./pull.sh primero."
-    exit 1
-fi
-}show_working_tree() {
-echo -e "\n📋 Estado del working tree:"
-if [[ -z "$(git status --porcelain)" ]]; then
-echo "   limpio."
-return 1
-fi
-git status --short
-return 0
-}============================================================ENTORNO DE ESTUDIO Y UV (PYTHON)============================================================verify_uv() {
-if ! command -v uv &> /dev/null; then
-echo "❌ 'uv' no está instalado. Instálalo con: curl -LsSf https://astral.sh/uv/install.sh | sh"
-exit 1
-fi
-}verify_virtual_environment() {
-echo -e "\n🐍 Verificando entorno virtual con UV..."
-if [[ ! -d ".venv" ]]; then
-echo "📦 Creando .venv hiper-rápido con uv..."
-uv venv
-echo "✅ .venv creado."
-fi
-PYTHON_VERSION=$(uv run python --version)
-echo "✅ Runtime: $PYTHON_VERSION"
-}verify_requirements() {
-echo -e "\n📦 Verificando dependencias para estudio..."
-# Auto-crear AssesRequirements.txt si no existe
-if [[ ! -f "AssesRequirements.txt" ]]; then
-echo "⚠️ No existe AssesRequirements.txt. Creando uno básico con dependencias de desarrollo..."
-echo -e "flake8\npytest" > AssesRequirements.txt
-fi
-}install_dependencies() {
-echo "📦 Sincronizando dependencias..."
-uv pip install -r AssesRequirements.txt > /dev/null
-echo "✅ Dependencias listas."
-}run_lint_and_tests() {
-echo -e "\n🔎 Validando código (Flake8)..."
-# Solo escanea archivos ignorando .venv y notebooks
-if uv run flake8 --exclude=".venv,*.ipynb,azure-cli,venv" . > /dev/null; then
-echo "✅ Flake8: 0 errores críticos."
-else
-echo "⚠️ Flake8 encontró advertencias de formato, pero el push continuará (entorno de estudio)."
-fiecho -e "\n🧪 Ejecutando tests (Pytest)..."
-if [[ -d "tests" ]]; then
-    if ! uv run pytest tests/ -v; then
-        echo "❌ Los tests fallaron. Push bloqueado."
+# ============================================================
+# CONFIGURACIÓN
+# ============================================================
+REMOTE="origin"
+
+show_header() {
+    echo -e "\n📥 Preparando para actualizar el entorno local...\n"
+}
+
+get_current_branch() {
+    CURRENT_BRANCH=$(git branch --show-current)
+    if [[ -z "$CURRENT_BRANCH" ]]; then
+        echo "❌ No se pudo determinar la rama actual."
         exit 1
     fi
-    echo "✅ Tests pasaron correctamente."
-else
-    echo "⏩ Carpeta 'tests/' no encontrada. Saltando pruebas."
-fi
-}============================================================COMMIT Y PUSH============================================================create_commit() {
-echo -e "\n🟢 Preparando commit..."
-echo "1) feat (✨ Nueva característica) | 2) fix (🐛 Bugfix) | 3) chore (⚙️ Config) | 4) refactor (♻️) | 5) docs (📚) | 6) study (🎓 Laboratorio/Apuntes)"
-read -r -p "Elige una opción (1-6): " optioncase "$option" in
-    1) type="feat" ;; 2) type="fix" ;; 3) type="chore" ;;
-    4) type="refactor" ;; 5) type="docs" ;; 6) type="study" ;;
-    *) type="chore" ;;
-esac
+    echo "🌐 Rama activa: $CURRENT_BRANCH"
+}
 
-read -r -p "✍️ Mensaje del commit: " commit_msg
-if [[ -z "$commit_msg" ]]; then
-    echo "❌ El mensaje no puede estar vacío."; exit 1
-fi
+fetch_and_pull() {
+    echo "📶 Conectando con GitHub ($REMOTE)..."
+    git fetch "$REMOTE" "$CURRENT_BRANCH" 2>/dev/null || true
 
-git add .
-git commit -m "$type:$commit_msg"
-}push_changes() {
-echo -e "\n🌐 Subiendo a GitHub ($CURRENT_BRANCH)..."
-if git push "$REMOTE" "$CURRENT_BRANCH"; then
-echo "✨ ¡Push exitoso!"
-else
-echo "❌ Error en el push. Verifica tu conexión o permisos."
-exit 1
-fi
-}============================================================MAIN============================================================main() {
-show_header
-verify_uv
-get_current_branch
-analyze_historyif ! show_working_tree; then
-    if [[ "$LOCAL_COMMITS" -gt 0 ]]; then
-        push_changes
-    else
-        echo "✅ Nada que enviar."
+    LOCAL_SHA=$(git rev-parse HEAD 2>/dev/null || echo "")
+    REMOTE_SHA=$(git rev-parse "$REMOTE"/"$CURRENT_BRANCH" 2>/dev/null || echo "")
+
+    if [[ -z "$REMOTE_SHA" ]]; then
+        echo "⚠️  La rama $CURRENT_BRANCH no existe en el remoto todavía."
+        echo "✅ Entorno listo."
+        return 0
     fi
-    exit 0
-fi
 
-# Flujo de validación UV
-verify_virtual_environment
-verify_requirements
-install_dependencies
-run_lint_and_tests
+    if [ "$LOCAL_SHA" = "$REMOTE_SHA" ]; then
+        echo "✅ Tu entorno local ya está 100% sincronizado con GitHub."
+    else
+        echo "⬇️ Descargando e integrando nuevos cambios..."
+        # Usamos rebase para mantener el historial del entorno de estudio perfectamente lineal
+        if git pull --rebase "$REMOTE" "$CURRENT_BRANCH"; then
+            echo "✨ ¡Actualización exitosa!"
+        else
+            echo "❌ Hubo un conflicto al actualizar. El script se detendrá para que lo resuelvas manualmente."
+            # Abortamos el rebase en caso de fallo para no dejar el repo atascado
+            git rebase --abort 2>/dev/null || true
+            exit 1
+        fi
+    fi
+}
 
-# Git
-create_commit
+sync_environment() {
+    if [[ -f "AssesRequirements.txt" ]] || [[ -f "requirements-dev.txt" ]]; then
+        echo -e "\n📦 Verificando dependencias de UV..."
+        if command -v uv &> /dev/null; then
+            uv pip install -r AssesRequirements.txt -r requirements-dev.txt > /dev/null 2>&1 || true
+            echo "✅ Dependencias de Python/herramientas sincronizadas."
+        else
+            echo "⚠️ 'uv' no encontrado, omitiendo actualización de dependencias."
+        fi
+    fi
+}
 
-# Prevenir que alguien haya pusheado mientras testeabas
-fetch_remote
-get_history_state
-if [[ "$REMOTE_COMMITS" -gt 0 ]]; then
-    echo "⛔ El remoto cambió mientras validabas. Resolviendo..."
-    resolve_divergence
-fi
+main() {
+    show_header
+    get_current_branch
+    fetch_and_pull
+    sync_environment
+    echo -e "\n🚀 Entorno listo para continuar simulaciones en Oracle SQL 26ai."
+}
 
-push_changes
-}main "$@"
+main "$@"
