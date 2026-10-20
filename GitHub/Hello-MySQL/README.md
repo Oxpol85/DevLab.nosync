@@ -1,5 +1,17 @@
 # Hello SQL
 
+# 🗄️ Cuaderno de Estudio: Simulación Oracle SQL
+
+Este entorno está diseñado para la práctica y toma de apuntes de bases de datos relacionales, simulando el comportamiento y sintaxis de Oracle SQL. 
+
+## ⚙️ Configuración del Entorno de Desarrollo
+
+El proyecto utiliza `uv` para la gestión ágil del entorno virtual y dependencias.
+
+1. **Activar el entorno:**
+   ```bash
+   source .venv/bin/activate
+
 [![SQL](https://img.shields.io/badge/MySQL-8.0+-f29221?style=for-the-badge&logo=mysql&logoColor=white&labelColor=101010)](https://mysql.com)
 [![SQL](https://img.shields.io/badge/PostgreSQL-16+-699eca?style=for-the-badge&logo=postgresql&logoColor=white&labelColor=101010)](https://postgresql.org)
 
@@ -153,3 +165,5 @@ Si quieres unirte a nuestra comunidad de desarrollo, aprender programación, mej
 [![Twitch](https://img.shields.io/badge/Twitch-Programación_en_directo-9146FF?style=for-the-badge&logo=twitch&logoColor=white&labelColor=101010)](https://twitch.tv/mouredev)
 [![Discord](https://img.shields.io/badge/Discord-Servidor_de_la_comunidad-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=101010)](https://mouredev.com/discord) [![Pro](https://img.shields.io/badge/Cursos-mouredev.pro-FF5500?style=for-the-badge&logo=gnometerminal&logoColor=white&labelColor=101010)](https://moure.dev)
 [![Link](https://img.shields.io/badge/Links_de_interés-moure.dev-14a1f0?style=for-the-badge&logo=Linktree&logoColor=white&labelColor=101010)](https://moure.dev) [![Web](https://img.shields.io/badge/GitHub-MoureDev-087ec4?style=for-the-badge&logo=github&logoColor=white&labelColor=101010)](https://github.com/mouredev)
+
+## ambientes de LavOracle Cloud. https://livelabs.oracle.com/ords/r/dbpm/livelabs/home
